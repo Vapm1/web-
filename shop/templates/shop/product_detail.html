@@ -1,0 +1,27 @@
+{%extends 'core/base.html'%}
+{% load static %}
+{%block title%}order{%endblock%}
+{%block main%} 
+
+    <div class="d-flex">
+    <img class="img__detail" src="{{product.img.url}}" alt="">
+    <div class="flex__container">
+    <div class="setting">
+    <h1>{{product.title}}</h1>
+    <hr>
+    <p class="discript_detail">Описание: {{product.description}}</p>
+    <p class="price__detail">Цена:  {{product.price}} рублей</p>
+    <p class="discount__detail">Скидка: {{product.discount}}%</p>
+    <p class="brand__detail">Брэнд: {{product.brand}}</p>
+    <p class="stock__detail">Осталось: {{product.stock}} штук</p>
+    <p class="added_detail">Дата добавления продукта: {{product.when_added}}</p>
+    <p class="raiting__detail">Рейтинг: {{product.raiting}}</p>
+    <a class="button__detail" href="{%url 'create_orders' product_id=product.id%}">Заказать</a>
+</div>
+</div>
+</div>
+<div class="long">
+    <H1 class="tittle__long">Отзывы</H1>
+    <h2 class="tittle__longer">Похожее на тему: {{product.title}}</h2>
+</div>
+{%endblock%}

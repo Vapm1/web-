@@ -1,0 +1,22 @@
+{%extends 'core/base.html'%}
+{% load static %}
+{%block title%}Create_order{%endblock%}
+{%block main%} 
+    
+<div class="container__orders">
+    
+    <form method="post" class="form__orders" action="">
+        {%csrf_token%}
+        <h1 class="create__log">Создание заказа</h1>
+        <hr>
+        <div class="input__orders">
+        <input name="address" type="text" placeholder="Ваш адрес" class="adress__orders">
+        <input name="email" type="text" placeholder="Ваш email" class="email__orders">
+        <input name="card" type="text" placeholder="Ваша банковская карта" class="bank__card">
+        <input name="discount" value="1" type="number" placeholder="Кол-во" class="order__discount">
+    </div>
+    <button class="button__orders">Создать</button>
+    </form>
+</div>
+{%endblock%}
+

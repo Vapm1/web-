@@ -1,0 +1,18 @@
+{%extends 'core/base.html'%}
+{% load static %}
+{%block title%}order{%endblock%}
+{%block main%} 
+
+
+   {%for order in orders%}
+<div class="card m-3" style="width: 18rem; ">
+    <div class="card-body">
+        <h5 class="card-title">Адрес{{order.adres}}</h5>
+        <p class="">почта:  {{order.email}} рублей</p>
+        <p class="">банковская карта: {{order.bank_card}}%</p>
+        <p class="class">Кол-во: {{order.count}}</p>
+       
+    </div>
+  </div>
+    {%endfor%}
+    {%endblock%}

@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>продукты</title>
-</head>
-<body>
-  
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-</html>
+{%extends 'core/base.html'%}
+{%block title%}Catalog{%endblock%}
+{%block main%} 
+{% load static %}
+
+<div class="d-flex flex-wrap">
+   {%for product in products%}
+<div class="card m-3" style="width: 18rem; ">
+    <div class="card-body">
+        <img class="img__card" src="{{product.img.url}}" alt="">
+        <h5 class="card-title">{{product.title}}</h5>
+        <p class="">Цена:  {{product.price}} рублей</p>
+        <p class="">Скидка: {{product.discount}}%</p>
+        <p class="class">Брэнд: {{product.brand}}</p>
+        <p class="class">Осталось: {{product.stock}} штук</p>
+        <p class="class">Дата добавления продукта: {{product.when_added}}</p>
+      <a href="{%url 'product' product_id=product.id%}" class="btn btn-primary">Подробнее</a>
+    </div>
+  </div>
+    {%endfor%}
+  </div>
+{%endblock%}
